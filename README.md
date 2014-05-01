@@ -1,4 +1,4 @@
-##Android NumberProgressBar
+##Android NumberProgressBar [![Build Status](https://travis-ci.org/daimajia/NumberProgressBar.png?branch=master)](https://travis-ci.org/daimajia/NumberProgressBar)
 
 -----
 
