@@ -4,7 +4,7 @@
 
 The NumberProgressBar is a bar, slim and sexy (every man wants! ). 
 
-I decided to do this beacause I'was really tierd of android original progressbar. So, I made some change, added more color style for this.
+I decided to do this because I was really tired of android original progress bar. So, I made some change, added more color style for this.
 
 And also you can contribute more color style, or new idea to me.
 
@@ -74,7 +74,7 @@ The **text area**:
 The **bar**:
 
 * max progress
-* current progree
+* current progress
 
 for example, the default style:
 
@@ -104,6 +104,6 @@ A student in China mainland, I like Google, like Android, like open source, like
 
 If you have some new idea or internship opportunity, please [email me](mailto:daimajia@gmail.com) !
 
-PS: Welcome to visit the site I am maintaining, which is a site to share graceful Android library for every Android developer.
+PS: Welcome to visit the site I am maintaining, which is a site to share graceful Android libraries for every Android developer.
 
-It's name is [Moo Droid](http://moodroid.com) :-D , and also welcome submit your beautiful library to [Moo Droid](http://moodroid.com). 
+Its name is [Moo Droid](http://moodroid.com) :-D , and also welcome submit your beautiful library to [Moo Droid](http://moodroid.com). 
