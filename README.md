@@ -53,7 +53,7 @@ In the above picture, the style is :
 `NumberProgressBar_Beauty_Red`
 `NumberProgressBar_Twinkle_Night`
 
-You can get more beautiful color from [kular](kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
+You can get more beautiful color from [kular](https://kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
 
 ###Attributes
 
