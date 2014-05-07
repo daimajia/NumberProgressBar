@@ -18,6 +18,14 @@ And also you can contribute more color style, or new idea to me.
 ###Usage
 ----
 
+Add the following config in your `build.gradle`:
+
+```groovy
+dependencies {
+   compile 'com.daimajia.numberprogressbar:library:1.0@aar'
+}
+```
+
 Use it in your own code:
 
 ```java
