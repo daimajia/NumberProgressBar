@@ -137,6 +137,7 @@ public class NumberProgressBar extends View {
     private boolean mDrawReachedBar = true;
 
 
+
     public NumberProgressBar(Context context) {
         this(context, null);
     }
@@ -156,8 +157,8 @@ public class NumberProgressBar extends View {
         default_progress_text_offset = dp2px(3.0f);
 
         //load styled attributes.
-        final TypedArray attributes = context.obtainStyledAttributes(attrs,R.styleable.NumberProgressBar,
-                defStyleAttr,0);
+        final TypedArray attributes = context.getTheme().obtainStyledAttributes(attrs, R.styleable.NumberProgressBar,
+                defStyleAttr, 0);
 
         mReachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_reached_color, default_reached_color);
         mUnreachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_unreached_color,default_unreached_color);
@@ -214,7 +215,7 @@ public class NumberProgressBar extends View {
         return result;
     }
 
-
+    private RectF mDrawTextRectF = new RectF(0,0,0,0);
     @Override
     protected void onDraw(Canvas canvas) {
         calculateDrawRectF();
@@ -227,6 +228,9 @@ public class NumberProgressBar extends View {
             canvas.drawRect(mUnreachedRectF, mUnreachedBarPaint);
         }
 
+        Paint clearPainer = new Paint(Paint.ANTI_ALIAS_FLAG);
+        clearPainer.setColor(Color.WHITE);
+        canvas.drawRect(mDrawTextRectF,clearPainer);
         canvas.drawText(mCurrentDrawText,mDrawTextStart,mDrawTextEnd,mTextPaint);
     }
 
@@ -267,18 +271,17 @@ public class NumberProgressBar extends View {
             mReachedRectF.right = mDrawTextStart - mOffset;
         }
 
-        float unreachBarStart = mDrawTextStart + mDrawTextWidth + mOffset;
-        if(unreachBarStart >= getWidth() - getPaddingRight()){
+        float unreachedBarStart = mDrawTextStart + mDrawTextWidth + mOffset;
+        if(unreachedBarStart >= getWidth() - getPaddingRight()){
             mDrawUnreachedBar = false;
         }else{
             mDrawUnreachedBar = true;
-            mUnreachedRectF.left = unreachBarStart;
+            mUnreachedRectF.left = unreachedBarStart;
             mUnreachedRectF.right = getWidth() - getPaddingRight();
             mUnreachedRectF.top = getHeight()/2.0f +  - mUnreachedBarHeight / 2.0f;
             mUnreachedRectF.bottom = getHeight()/2.0f  + mUnreachedBarHeight / 2.0f;
         }
     }
-
     /**
      * get progress text color
      * @return progress text color
@@ -364,7 +367,6 @@ public class NumberProgressBar extends View {
             invalidate();
         }
     }
-
 
     @Override
     protected Parcelable onSaveInstanceState() {
