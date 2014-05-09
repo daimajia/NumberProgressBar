@@ -8,12 +8,12 @@ I decided to do this because I was really tired of android original progress bar
 
 And also you can contribute more color style, or new idea to me.
 
-----
+---
+
 ###Demo
 
 ![NumberProgressBar](http://ww3.sinaimg.cn/mw690/610dc034jw1efyrd8n7i7g20cz02mq5f.gif)
 
-you can also set the progress text invisible (It's also very beautiful~ :-D ).
 
 [Download Demo](https://github.com/daimajia/NumberProgressBar/releases/download/v1.0/NumberProgressBar-Demo-v1.0.apk)
 
@@ -24,7 +24,7 @@ Add the following config in your `build.gradle`:
 
 ```groovy
 dependencies {
-   compile 'com.daimajia.numberprogressbar:library:1.0@aar'
+   compile 'com.daimajia.numberprogressbar:library:1.1@aar'
 }
 ```
 
