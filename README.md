@@ -13,6 +13,8 @@ And also you can contribute more color style, or new idea to me.
 
 ![NumberProgressBar](http://ww3.sinaimg.cn/mw690/610dc034jw1efyrd8n7i7g20cz02mq5f.gif)
 
+you can also set the progress text invisible (It's also very beautiful~ :-D ).
+
 [Download Demo](https://github.com/daimajia/NumberProgressBar/releases/download/v1.0/NumberProgressBar-Demo-v1.0.apk)
 
 ###Usage
@@ -62,6 +64,7 @@ There are several attributes you can set:
 ![](http://ww2.sinaimg.cn/mw690/610dc034jw1efyttukr1zj20eg04bmx9.jpg)
 
 The **reached area** and **unreached area**:
+
 * color
 * height 
 
@@ -69,6 +72,7 @@ The **text area**:
 
 * color
 * text size
+* visibility
 * distance between **reached area** and **unreached area**
 
 The **bar**:
@@ -92,6 +96,7 @@ for example, the default style:
 	        custom:progress_text_size="10sp"
 	        custom:progress_text_color="#3498DB"
 	        custom:progress_text_offset="1dp"
+	        custom:progress_text_visibility="visible"
 	        
 	        custom:max="100"
 	        custom:progress="80"

@@ -17,6 +17,7 @@
         android:layout_width="wrap_content"
         android:padding="20dp"
         custom:progress="0"
+        custom:progress_text_visibility="invisible"
         style="@style/NumberProgressBar_Default"
         android:layout_height="wrap_content" />
 

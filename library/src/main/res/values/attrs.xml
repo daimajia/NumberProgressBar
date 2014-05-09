@@ -14,6 +14,11 @@
         <attr name="progress_text_color" format="color"/>
 
         <attr name="progress_text_offset" format="dimension"/>
+
+        <attr name="progress_text_visibility" format="enum">
+            <enum name="visible" value="0"/>
+            <enum name="invisible" value="1"/>
+        </attr>
     </declare-styleable>
 
     <declare-styleable name="Themes">

@@ -21,7 +21,6 @@ public class MainActivity extends ActionBarActivity {
 
         final NumberProgressBar bnp = (NumberProgressBar)findViewById(R.id.numberbar1);
         counter = 0;
-        setProgress(0);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -34,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
                         if (counter == 110) {
                             bnp.setProgress(0);
                             counter=0;
+
                         }
                     }
                 });
