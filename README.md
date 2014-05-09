@@ -1,10 +1,10 @@
-##Android NumberProgressBar
+##Android NumberProgressBar [![Build Status](https://travis-ci.org/daimajia/NumberProgressBar.png?branch=master)](https://travis-ci.org/daimajia/NumberProgressBar)
 
 -----
 
 The NumberProgressBar is a bar, slim and sexy (every man wants! ). 
 
-I decided to do this beacause I'was really tierd of android original progressbar. So, I made some change, added more color style for this.
+I decided to do this because I was really tired of android original progress bar. So, I made some change, added more color style for this.
 
 And also you can contribute more color style, or new idea to me.
 
@@ -19,6 +19,14 @@ you can also set the progress text invisible (It's also very beautiful~ :-D ).
 
 ###Usage
 ----
+
+Add the following config in your `build.gradle`:
+
+```groovy
+dependencies {
+   compile 'com.daimajia.numberprogressbar:library:1.0@aar'
+}
+```
 
 Use it in your own code:
 
@@ -55,7 +63,7 @@ In the above picture, the style is :
 `NumberProgressBar_Beauty_Red`
 `NumberProgressBar_Twinkle_Night`
 
-You can get more beautiful color from [kular](kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
+You can get more beautiful color from [kular](https://kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
 
 ###Attributes
 
@@ -78,7 +86,7 @@ The **text area**:
 The **bar**:
 
 * max progress
-* current progree
+* current progress
 
 for example, the default style:
 
@@ -109,6 +117,6 @@ A student in China mainland, I like Google, like Android, like open source, like
 
 If you have some new idea or internship opportunity, please [email me](mailto:daimajia@gmail.com) !
 
-PS: Welcome to visit the site I am maintaining, which is a site to share graceful Android library for every Android developer.
+PS: Welcome to visit the site I am maintaining, which is a site to share graceful Android libraries for every Android developer.
 
-It's name is [Moo Droid](http://moodroid.com) :-D , and also welcome submit your beautiful library to [Moo Droid](http://moodroid.com). 
+Its name is [Moo Droid](http://moodroid.com) :-D , and also welcome submit your beautiful library to [Moo Droid](http://moodroid.com). 
