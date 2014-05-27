@@ -65,6 +65,14 @@ In the above picture, the style is :
 
 You can get more beautiful color from [kular](https://kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
 
+###Build
+
+run `./gradlew assembleDebug` (Mac/Linux)
+
+or
+
+run `gradlew.bat assembleDebug` (Windows)
+
 ###Attributes
 
 There are several attributes you can set:
