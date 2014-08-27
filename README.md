@@ -20,12 +20,23 @@ And also you can contribute more color style, or new idea to me.
 ###Usage
 ----
 
-Add the following config in your `build.gradle`:
+#### Gradle
 
 ```groovy
 dependencies {
-   compile 'com.daimajia.numberprogressbar:library:1.1@aar'
+   compile 'com.daimajia.numberprogressbar:library:1.2@aar'
 }
+```
+
+#### Maven 
+
+```xml
+<dependency>
+    <groupId>com.daimajia.numberprogressbar</groupId>
+    <artifactId>library</artifactId>
+    <version>1.2</version>
+    <type>apklib</type>
+</dependency>
 ```
 
 Use it in your own code:
