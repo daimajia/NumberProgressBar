@@ -89,6 +89,8 @@ public class NumberProgressBar extends View {
     private static final String INSTANCE_UNREACHED_BAR_COLOR = "unreached_bar_color";
     private static final String INSTANCE_MAX = "max";
     private static final String INSTANCE_PROGRESS = "progress";
+    private static final String INSTANCE_SUFFIX = "suffix";
+    private static final String INSTANCE_PREFIX = "prefix";
 
     private static final int PROGRESS_TEXT_VISIBLE = 0;
     private static final int PROGRESS_TEXT_INVISIBLE = 1;
@@ -401,12 +403,20 @@ public class NumberProgressBar extends View {
         }
     }
 
+    public String getSuffix(){
+        return mSuffix;
+    }
+
     public void setPrefix(String prefix){
         if(prefix == null)
             mPrefix = "";
         else{
             mPrefix = prefix;
         }
+    }
+
+    public String getPrefix(){
+        return mPrefix;
     }
 
     public void incrementProgressBy(int by){
@@ -434,6 +444,8 @@ public class NumberProgressBar extends View {
         bundle.putInt(INSTANCE_UNREACHED_BAR_COLOR,getUnreachedBarColor());
         bundle.putInt(INSTANCE_MAX,getMax());
         bundle.putInt(INSTANCE_PROGRESS,getProgress());
+        bundle.putString(INSTANCE_SUFFIX,getSuffix());
+        bundle.putString(INSTANCE_PREFIX,getPrefix());
         return bundle;
     }
 
@@ -450,6 +462,8 @@ public class NumberProgressBar extends View {
             initializePainters();
             setMax(bundle.getInt(INSTANCE_MAX));
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
+            setPrefix(bundle.getString(INSTANCE_PREFIX));
+            setSuffix(bundle.getString(INSTANCE_SUFFIX));
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
             return;
         }
