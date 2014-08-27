@@ -8,6 +8,12 @@ I decided to do this because I was really tired of android original progress bar
 
 And also you can contribute more color style, or new idea to me.
 
+BTW. My friends also made some other platform's NumberProgressBar：
+
+- [Web-Front](https://github.com/kalasoo/NumberProgressBar) by [kalasoo](https://github.com/kalasoo/NumberProgressBar)
+- [iOS](https://github.com/Ming-Zhe/NumberProgressBar) by [Ming-Zhe](https://github.com/Ming-Zhe/NumberProgressBar)
+- [Windows Phone](https://github.com/s2003zy/NumberProgressBar) by [s2003zy](https://github.com/s2003zy)
+
 ---
 
 ###Demo
@@ -16,6 +22,7 @@ And also you can contribute more color style, or new idea to me.
 
 
 [Download Demo](https://github.com/daimajia/NumberProgressBar/releases/download/v1.0/NumberProgressBar-Demo-v1.0.apk)
+
 
 ###Usage
 ----
