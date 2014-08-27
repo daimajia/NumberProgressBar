@@ -58,6 +58,16 @@ public class NumberProgressBar extends View {
      */
     private float mUnreachedBarHeight;
 
+    /**
+     * the suffix of the number.
+     */
+    private String mSuffix = "%";
+
+    /**
+     * the prefix.
+     */
+    private String mPrefix = "";
+
 
     private final int default_text_color = Color.rgb(66, 145, 241);
     private final int default_reached_color = Color.rgb(66,145,241);
@@ -276,7 +286,8 @@ public class NumberProgressBar extends View {
 
     private void calculateDrawRectF(){
 
-        mCurrentDrawText = String.format("%d%%",getProgress()*100/getMax());
+        mCurrentDrawText = String.format("%d" ,getProgress()*100/getMax());
+        mCurrentDrawText = mPrefix + mCurrentDrawText + mSuffix;
         mDrawTextWidth = mTextPaint.measureText(mCurrentDrawText);
 
         if(getProgress() == 0){
@@ -379,6 +390,22 @@ public class NumberProgressBar extends View {
         if(Max > 0){
             this.mMax = Max;
             invalidate();
+        }
+    }
+
+    public void setSuffix(String suffix){
+        if(suffix == null){
+            mSuffix = "";
+        }else{
+            mSuffix = suffix;
+        }
+    }
+
+    public void setPrefix(String prefix){
+        if(prefix == null)
+            mPrefix = "";
+        else{
+            mPrefix = prefix;
         }
     }
 
