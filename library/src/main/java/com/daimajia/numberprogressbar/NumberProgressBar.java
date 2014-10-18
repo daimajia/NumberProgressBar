@@ -152,6 +152,7 @@ public class NumberProgressBar extends View {
     private boolean mDrawReachedBar = true;
 
     private boolean mIfDrawText = true;
+    private int mCustomValue;
 
     public enum ProgressTextVisibility{
         Visible,Invisible
@@ -287,8 +288,11 @@ public class NumberProgressBar extends View {
     }
 
     private void calculateDrawRectF(){
-
-        mCurrentDrawText = String.format("%d" ,getProgress()*100/getMax());
+        if(mCustomValue == 0)
+            mCurrentDrawText = String.format("%d" ,getProgress()*100/getMax());
+        else{
+            mCurrentDrawText = String.format("%d" ,mCustomValue);
+        }
         mCurrentDrawText = mPrefix + mCurrentDrawText + mSuffix;
         mDrawTextWidth = mTextPaint.measureText(mCurrentDrawText);
 
@@ -383,6 +387,10 @@ public class NumberProgressBar extends View {
     public void setReachedBarColor(int ProgressColor) {
         this.mReachedBarColor = ProgressColor;
         mReachedBarPaint.setColor(mReachedBarColor);
+        invalidate();
+    }
+    public void setCustomValue(int mCustomValue) {
+        this.mCustomValue = mCustomValue;
         invalidate();
     }
 
@@ -494,5 +502,4 @@ public class NumberProgressBar extends View {
         }
         invalidate();
     }
-
 }
