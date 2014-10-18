@@ -362,8 +362,6 @@ public class NumberProgressBar extends View {
         return mUnreachedBarHeight;
     }
 
-
-
     public void setProgressTextSize(float TextSize) {
         this.mTextSize = TextSize;
         mTextPaint.setTextSize(mTextSize);
@@ -386,6 +384,14 @@ public class NumberProgressBar extends View {
         this.mReachedBarColor = ProgressColor;
         mReachedBarPaint.setColor(mReachedBarColor);
         invalidate();
+    }
+
+    public void setReachedBarHeight(float height){
+        mReachedBarHeight = height;
+    }
+
+    public void setUnreachedBarHeight(float height){
+        mUnreachedBarHeight = height;
     }
 
     public void setMax(int Max) {
