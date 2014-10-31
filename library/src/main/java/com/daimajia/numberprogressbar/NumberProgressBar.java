@@ -91,6 +91,7 @@ public class NumberProgressBar extends View {
     private static final String INSTANCE_PROGRESS = "progress";
     private static final String INSTANCE_SUFFIX = "suffix";
     private static final String INSTANCE_PREFIX = "prefix";
+    private static final String INSTANCE_IF_DRAW_TEXT = "if_draw_text";
 
     private static final int PROGRESS_TEXT_VISIBLE = 0;
     private static final int PROGRESS_TEXT_INVISIBLE = 1;
@@ -438,6 +439,15 @@ public class NumberProgressBar extends View {
         }
     }
 
+    public void setIfDrawText(boolean drawText) {
+        mIfDrawText = drawText;
+        invalidate();
+    }
+
+    public boolean getIfDrawText() {
+        return mIfDrawText;
+    }
+
     @Override
     protected Parcelable onSaveInstanceState() {
         final Bundle bundle = new Bundle();
@@ -452,6 +462,7 @@ public class NumberProgressBar extends View {
         bundle.putInt(INSTANCE_PROGRESS,getProgress());
         bundle.putString(INSTANCE_SUFFIX,getSuffix());
         bundle.putString(INSTANCE_PREFIX,getPrefix());
+        bundle.putBoolean(INSTANCE_IF_DRAW_TEXT, getIfDrawText());
         return bundle;
     }
 
@@ -470,6 +481,7 @@ public class NumberProgressBar extends View {
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
             setPrefix(bundle.getString(INSTANCE_PREFIX));
             setSuffix(bundle.getString(INSTANCE_SUFFIX));
+            setIfDrawText(bundle.getBoolean(INSTANCE_IF_DRAW_TEXT));
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
             return;
         }
@@ -487,12 +499,7 @@ public class NumberProgressBar extends View {
     }
 
     public void setProgressTextVisibility(ProgressTextVisibility visibility){
-        if(visibility == ProgressTextVisibility.Visible){
-            mIfDrawText = true;
-        }else{
-            mIfDrawText = false;
-        }
-        invalidate();
+        setIfDrawText(visibility == ProgressTextVisibility.Visible);
     }
 
 }
