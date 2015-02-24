@@ -16,10 +16,7 @@ import android.view.View;
  */
 public class NumberProgressBar extends View {
 
-    /**
-     * The max progress, default is 100.
-     */
-    private int mMax = 100;
+    private int maxProgress = 100;
 
     /**
      * Current progress, can not exceed the max progress.
@@ -346,7 +343,7 @@ public class NumberProgressBar extends View {
     }
 
     public int getMax() {
-        return mMax;
+        return maxProgress;
     }
 
     public float getReachedBarHeight(){
@@ -389,9 +386,9 @@ public class NumberProgressBar extends View {
         mUnreachedBarHeight = height;
     }
 
-    public void setMax(int max) {
-        if(max > 0){
-            this.mMax = max;
+    public void setMax(int maxProgress) {
+        if(maxProgress > 0){
+            this.maxProgress = maxProgress;
             invalidate();
         }
     }
