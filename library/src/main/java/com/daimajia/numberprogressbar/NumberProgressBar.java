@@ -21,7 +21,7 @@ public class NumberProgressBar extends View {
     /**
      * Current progress, can not exceed the max progress.
      */
-    private int mProgress = 0;
+    private int currentProgress = 0;
 
     /**
      * The progress area bar color.
@@ -339,7 +339,7 @@ public class NumberProgressBar extends View {
     }
 
     public int getProgress() {
-        return mProgress;
+        return currentProgress;
     }
 
     public int getMax() {
@@ -425,7 +425,7 @@ public class NumberProgressBar extends View {
 
     public void setProgress(int progress) {
         if(progress <= getMax()  && progress >= 0){
-            this.mProgress = progress;
+            this.currentProgress = progress;
             invalidate();
         }
     }
