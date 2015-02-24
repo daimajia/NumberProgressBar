@@ -17,52 +17,52 @@ import android.view.View;
 public class NumberProgressBar extends View {
 
     /**
-     * The max progress, default is 100
+     * The max progress, default is 100.
      */
     private int mMax = 100;
 
     /**
-     * current progress, can not exceed the max progress.
+     * Current progress, can not exceed the max progress.
      */
     private int mProgress = 0;
 
     /**
-     * the progress area bar color
+     * The progress area bar color.
      */
     private int mReachedBarColor;
 
     /**
-     * the bar unreached area color.
+     * The bar unreached area color.
      */
     private int mUnreachedBarColor;
 
     /**
-     * the progress text color.
+     * The progress text color.
      */
     private int mTextColor;
 
     /**
-     * the progress text size
+     * The progress text size.
      */
     private float mTextSize;
 
     /**
-     * the height of the reached area
+     * The height of the reached area.
      */
     private float mReachedBarHeight;
 
     /**
-     * the height of the unreached area
+     * The height of the unreached area.
      */
     private float mUnreachedBarHeight;
 
     /**
-     * the suffix of the number.
+     * The suffix of the number.
      */
     private String mSuffix = "%";
 
     /**
-     * the prefix.
+     * The prefix.
      */
     private String mPrefix = "";
 
@@ -76,7 +76,7 @@ public class NumberProgressBar extends View {
     private final float default_unreached_bar_height;
 
     /**
-     * for save and restore instance of progressbar.
+     * For save and restore instance of progressbar.
      */
     private static final String INSTANCE_STATE = "saved_instance";
     private static final String INSTANCE_TEXT_COLOR = "text_color";
@@ -95,54 +95,54 @@ public class NumberProgressBar extends View {
 
 
     /**
-     * the width of the text that to be drawn
+     * The width of the text that to be drawn.
      */
     private float mDrawTextWidth;
 
     /**
-     * the drawn text start
+     * The drawn text start.
      */
     private float mDrawTextStart;
 
     /**
-     *the drawn text end
+     * The drawn text end.
      */
     private float mDrawTextEnd;
 
     /**
-     * the text that to be drawn in onDraw()
+     * The text that to be drawn in onDraw().
      */
     private String mCurrentDrawText;
 
     /**
-     * the Paint of the reached area.
+     * The Paint of the reached area.
      */
     private Paint mReachedBarPaint;
     /**
-     * the Painter of the unreached area.
+     * The Paint of the unreached area.
      */
     private Paint mUnreachedBarPaint;
     /**
-     * the Painter of the progress text.
+     * The Paint of the progress text.
      */
     private Paint mTextPaint;
 
     /**
-     * Unreached Bar area to draw rect.
+     * Unreached bar area to draw rect.
      */
     private RectF mUnreachedRectF = new RectF(0,0,0,0);
     /**
-     * reached bar area rect.
+     * Reached bar area rect.
      */
     private RectF mReachedRectF = new RectF(0,0,0,0);
 
     /**
-     * the progress text offset.
+     * The progress text offset.
      */
     private float mOffset;
 
     /**
-     * determine if need to draw unreached area
+     * Determine if need to draw unreached area.
      */
     private boolean mDrawUnreachedBar = true;
 
@@ -318,16 +318,16 @@ public class NumberProgressBar extends View {
         }
     }
     /**
-     * get progress text color
-     * @return progress text color
+     * Get progress text color.
+     * @return progress text color.
      */
     public int getTextColor() {
         return mTextColor;
     }
 
     /**
-     * get progress text size
-     * @return progress text size
+     * Get progress text size.
+     * @return progress text size.
      */
     public float getProgressTextSize() {
         return mTextSize;
