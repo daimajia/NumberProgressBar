@@ -16,8 +16,6 @@ import android.view.View;
  */
 public class NumberProgressBar extends View {
 
-    private Context mContext;
-
     /**
      * The max progress, default is 100
      */
@@ -170,8 +168,6 @@ public class NumberProgressBar extends View {
 
     public NumberProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
-        mContext = context;
 
         default_reached_bar_height = dp2px(1.5f);
         default_unreached_bar_height = dp2px(1.0f);
