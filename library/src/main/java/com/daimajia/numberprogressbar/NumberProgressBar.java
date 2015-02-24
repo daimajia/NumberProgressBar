@@ -357,26 +357,26 @@ public class NumberProgressBar extends View {
         return mUnreachedBarHeight;
     }
 
-    public void setProgressTextSize(float TextSize) {
-        this.mTextSize = TextSize;
+    public void setProgressTextSize(float textSize) {
+        this.mTextSize = textSize;
         mTextPaint.setTextSize(mTextSize);
         invalidate();
     }
 
-    public void setProgressTextColor(int TextColor) {
-        this.mTextColor = TextColor;
+    public void setProgressTextColor(int textColor) {
+        this.mTextColor = textColor;
         mTextPaint.setColor(mTextColor);
         invalidate();
     }
 
-    public void setUnreachedBarColor(int BarColor) {
-        this.mUnreachedBarColor = BarColor;
+    public void setUnreachedBarColor(int barColor) {
+        this.mUnreachedBarColor = barColor;
         mUnreachedBarPaint.setColor(mReachedBarColor);
         invalidate();
     }
 
-    public void setReachedBarColor(int ProgressColor) {
-        this.mReachedBarColor = ProgressColor;
+    public void setReachedBarColor(int progressColor) {
+        this.mReachedBarColor = progressColor;
         mReachedBarPaint.setColor(mReachedBarColor);
         invalidate();
     }
@@ -389,9 +389,9 @@ public class NumberProgressBar extends View {
         mUnreachedBarHeight = height;
     }
 
-    public void setMax(int Max) {
-        if(Max > 0){
-            this.mMax = Max;
+    public void setMax(int max) {
+        if(max > 0){
+            this.mMax = max;
             invalidate();
         }
     }
@@ -426,9 +426,9 @@ public class NumberProgressBar extends View {
         }
     }
 
-    public void setProgress(int Progress) {
-        if(Progress <= getMax()  && Progress >= 0){
-            this.mProgress = Progress;
+    public void setProgress(int progress) {
+        if(progress <= getMax()  && progress >= 0){
+            this.mProgress = progress;
             invalidate();
         }
     }
