@@ -89,7 +89,7 @@ public class NumberProgressBar extends View {
     private static final String INSTANCE_PROGRESS = "progress";
     private static final String INSTANCE_SUFFIX = "suffix";
     private static final String INSTANCE_PREFIX = "prefix";
-    private static final String INSTANCE_TEXT_VISBILITY = "text_visibility";
+    private static final String INSTANCE_TEXT_VISIBILITY = "text_visibility";
 
     private static final int PROGRESS_TEXT_VISIBLE = 0;
 
@@ -447,7 +447,7 @@ public class NumberProgressBar extends View {
         bundle.putInt(INSTANCE_PROGRESS,getProgress());
         bundle.putString(INSTANCE_SUFFIX,getSuffix());
         bundle.putString(INSTANCE_PREFIX,getPrefix());
-        bundle.putBoolean(INSTANCE_TEXT_VISBILITY, getProgressTextVisibility());
+        bundle.putBoolean(INSTANCE_TEXT_VISIBILITY, getProgressTextVisibility());
         return bundle;
     }
 
@@ -466,7 +466,7 @@ public class NumberProgressBar extends View {
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
             setPrefix(bundle.getString(INSTANCE_PREFIX));
             setSuffix(bundle.getString(INSTANCE_SUFFIX));
-            setProgressTextVisibility(bundle.getBoolean(INSTANCE_TEXT_VISBILITY) ? ProgressTextVisibility.Visible : ProgressTextVisibility.Invisible);
+            setProgressTextVisibility(bundle.getBoolean(INSTANCE_TEXT_VISIBILITY) ? ProgressTextVisibility.Visible : ProgressTextVisibility.Invisible);
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
             return;
         }
