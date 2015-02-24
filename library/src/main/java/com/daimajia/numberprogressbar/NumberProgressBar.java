@@ -11,6 +11,9 @@ import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
 
+import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Invisible;
+import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Visible;
+
 /**
  * Created by daimajia on 14-4-30.
  */
@@ -461,7 +464,7 @@ public class NumberProgressBar extends View {
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
             setPrefix(bundle.getString(INSTANCE_PREFIX));
             setSuffix(bundle.getString(INSTANCE_SUFFIX));
-            setProgressTextVisibility(bundle.getBoolean(INSTANCE_TEXT_VISIBILITY) ? ProgressTextVisibility.Visible : ProgressTextVisibility.Invisible);
+            setProgressTextVisibility(bundle.getBoolean(INSTANCE_TEXT_VISIBILITY) ? Visible : Invisible);
             super.onRestoreInstanceState(bundle.getParcelable(INSTANCE_STATE));
             return;
         }
@@ -479,7 +482,7 @@ public class NumberProgressBar extends View {
     }
 
     public void setProgressTextVisibility(ProgressTextVisibility visibility) {
-        mIfDrawText = visibility == ProgressTextVisibility.Visible;
+        mIfDrawText = visibility == Visible;
         invalidate();
     }
 
