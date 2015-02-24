@@ -92,8 +92,6 @@ public class NumberProgressBar extends View {
     private static final String INSTANCE_TEXT_VISBILITY = "text_visibility";
 
     private static final int PROGRESS_TEXT_VISIBLE = 0;
-    private static final int PROGRESS_TEXT_INVISIBLE = 1;
-
 
 
     /**
