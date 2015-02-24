@@ -19,12 +19,12 @@ import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisib
  */
 public class NumberProgressBar extends View {
 
-    private int maxProgress = 100;
+    private int mMaxProgress = 100;
 
     /**
      * Current progress, can not exceed the max progress.
      */
-    private int currentProgress = 0;
+    private int mCurrentProgress = 0;
 
     /**
      * The progress area bar color.
@@ -340,11 +340,11 @@ public class NumberProgressBar extends View {
     }
 
     public int getProgress() {
-        return currentProgress;
+        return mCurrentProgress;
     }
 
     public int getMax() {
-        return maxProgress;
+        return mMaxProgress;
     }
 
     public float getReachedBarHeight() {
@@ -389,7 +389,7 @@ public class NumberProgressBar extends View {
 
     public void setMax(int maxProgress) {
         if (maxProgress > 0) {
-            this.maxProgress = maxProgress;
+            this.mMaxProgress = maxProgress;
             invalidate();
         }
     }
@@ -426,7 +426,7 @@ public class NumberProgressBar extends View {
 
     public void setProgress(int progress) {
         if (progress <= getMax() && progress >= 0) {
-            this.currentProgress = progress;
+            this.mCurrentProgress = progress;
             invalidate();
         }
     }
