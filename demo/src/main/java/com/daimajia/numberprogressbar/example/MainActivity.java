@@ -14,18 +14,17 @@ import java.util.TimerTask;
 
 
 public class MainActivity extends ActionBarActivity implements OnProgressBarListener {
-    private int counter = 0;
     private Timer timer;
 
     private NumberProgressBar bnp;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         bnp = (NumberProgressBar)findViewById(R.id.numberbar1);
-        bnp.setOnProgressBarFinishListener(this);
-        counter = 0;
+        bnp.setOnProgressBarListener(this);
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -34,13 +33,11 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
                     @Override
                     public void run() {
                         bnp.incrementProgressBy(1);
-                        counter ++;
                     }
                 });
             }
         }, 1000, 100);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,9 +65,10 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
     }
 
     @Override
-    public void onProgressBarFinish() {
-        Toast.makeText(getApplicationContext(), getString(R.string.finish), Toast.LENGTH_SHORT).show();
-        bnp.setProgress(0);
-        counter = 0;
+    public void onProgressChange(int current, int max) {
+        if(current == max) {
+            Toast.makeText(getApplicationContext(), getString(R.string.finish), Toast.LENGTH_SHORT).show();
+            bnp.setProgress(0);
+        }
     }
 }

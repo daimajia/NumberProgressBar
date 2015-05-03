@@ -5,5 +5,5 @@ package com.daimajia.numberprogressbar;
  */
 public interface OnProgressBarListener {
 
-    public void onProgressBarFinish();
+    void onProgressChange(int current, int max);
 }
