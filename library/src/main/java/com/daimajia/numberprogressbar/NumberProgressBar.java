@@ -150,6 +150,11 @@ public class NumberProgressBar extends View {
 
     private boolean mIfDrawText = true;
 
+    /**
+     * Listener
+     */
+    private OnProgressBarListener mListener;
+
     public enum ProgressTextVisibility {
         Visible, Invisible
     }
@@ -422,6 +427,10 @@ public class NumberProgressBar extends View {
         if (by > 0) {
             setProgress(getProgress() + by);
         }
+
+        if(mListener != null){
+            mListener.onProgressChange(getProgress(), getMax());
+        }
     }
 
     public void setProgress(int progress) {
@@ -490,4 +499,7 @@ public class NumberProgressBar extends View {
         return mIfDrawText;
     }
 
+    public void setOnProgressBarListener(OnProgressBarListener listener){
+        mListener = listener;
+    }
 }
