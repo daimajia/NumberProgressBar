@@ -16,7 +16,7 @@
         android:id="@+id/numberbar1"
         android:layout_width="wrap_content"
         android:padding="20dp"
-        custom:progress="0"
+        custom:progress_current="0"
         style="@style/NumberProgressBar_Default"
         android:layout_height="wrap_content" />
 
@@ -24,7 +24,7 @@
         android:id="@+id/numberbar2"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        custom:progress="20"
+        custom:progress_current="20"
         android:layout_width="match_parent"
         style="@style/NumberProgressBar_Passing_Green"
      />
@@ -33,7 +33,7 @@
         android:id="@+id/numberbar3"
         android:layout_margin="20dp"
         style="@style/NumberProgressBar_Relax_Blue"
-        custom:progress="30"
+        custom:progress_current="30"
         android:layout_height="wrap_content" />
 
     <com.daimajia.numberprogressbar.NumberProgressBar
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         style="@style/NumberProgressBar_Grace_Yellow"
-        custom:progress="40"
+        custom:progress_current="40"
         android:layout_height="wrap_content" />
 
 
@@ -49,7 +49,7 @@
         android:id="@+id/numberbar5"
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
-        custom:progress="50"
+        custom:progress_current="50"
         style="@style/NumberProgressBar_Warning_Red"
         android:layout_height="wrap_content" />
 
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         style="@style/NumberProgressBar_Funny_Orange"
-        custom:progress="60"
+        custom:progress_current="60"
         android:layout_height="wrap_content" />
 
     <com.daimajia.numberprogressbar.NumberProgressBar
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         style="@style/NumberProgressBar_Beauty_Red"
-        custom:progress="70"
+        custom:progress_current="70"
         android:layout_height="wrap_content" />
 
     <com.daimajia.numberprogressbar.NumberProgressBar
@@ -75,7 +75,7 @@
         android:layout_width="wrap_content"
         android:layout_margin="20dp"
         style="@style/NumberProgressBar_Twinkle_Night"
-        custom:progress="80"
+        custom:progress_current="80"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

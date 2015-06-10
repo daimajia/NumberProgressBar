@@ -193,8 +193,8 @@ public class NumberProgressBar extends View {
             mIfDrawText = false;
         }
 
-        setProgress(attributes.getInt(R.styleable.NumberProgressBar_progress, 0));
-        setMax(attributes.getInt(R.styleable.NumberProgressBar_max, 100));
+        setProgress(attributes.getInt(R.styleable.NumberProgressBar_progress_current, 0));
+        setMax(attributes.getInt(R.styleable.NumberProgressBar_progress_max, 100));
 
         attributes.recycle();
         initializePainters();

@@ -4,8 +4,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#3498DB</item>
@@ -21,8 +21,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#70A800</item>
@@ -38,8 +38,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#FF3D7F</item>
@@ -54,8 +54,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#E74C3C</item>
@@ -70,8 +70,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#6DBCDB</item>
@@ -86,8 +86,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#FFC73B</item>
@@ -102,8 +102,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#FF530D</item>
@@ -118,8 +118,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
 
-        <item name="max">100</item>
-        <item name="progress">0</item>
+        <item name="progress_max">100</item>
+        <item name="progress_current">0</item>
 
         <item name="progress_unreached_color">#CCCCCC</item>
         <item name="progress_reached_color">#ECF0F1</item>

@@ -132,8 +132,8 @@ for example, the default style:
 	        custom:progress_text_offset="1dp"
 	        custom:progress_text_visibility="visible"
 	        
-	        custom:max="100"
-	        custom:progress="80"
+	        custom:progress_max="100"
+	        custom:progress_curent="80"
 	         />
 ```
 
