@@ -2,8 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.daimajia.numberprogressbar.example.MainActivity" >
-    <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+    <item android:id="@+id/action_reset"
+        android:title="@string/reset"
         android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_stop"
+        android:title="@string/stop"
+        android:orderInCategory="99"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_start"
+        android:title="@string/start"
+        android:orderInCategory="98"
         app:showAsAction="never" />
 </menu>
