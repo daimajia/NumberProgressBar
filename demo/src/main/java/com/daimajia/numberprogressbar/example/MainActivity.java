@@ -96,8 +96,10 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
             npbArray[i].setProgress(10 * (i + 1));
         }
         currentIndex = 0;
-        timerTask.cancel();
-        timerTask = null;
+        if(timerTask!=null) {
+          timerTask.cancel();
+          timerTask = null;
+        }
         runTimer();
     }
 
@@ -120,7 +122,8 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
         if (currentIndex < npbArray.length - 1) {
             if (current == max) {
                 currentIndex++;
-                timerTask.cancel();
+                if(timerTask!=null)
+                   timerTask.cancel();
                 timerTask = null;
                 runTimer();
             }
