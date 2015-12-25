@@ -374,7 +374,7 @@ public class NumberProgressBar extends View {
 
     public void setUnreachedBarColor(int barColor) {
         this.mUnreachedBarColor = barColor;
-        mUnreachedBarPaint.setColor(mReachedBarColor);
+        mUnreachedBarPaint.setColor(mUnreachedBarColor);
         invalidate();
     }
 
