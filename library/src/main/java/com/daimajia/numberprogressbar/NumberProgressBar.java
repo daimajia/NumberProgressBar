@@ -1,5 +1,7 @@
 package com.daimajia.numberprogressbar;
 
+import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
@@ -10,6 +12,9 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Invisible;
 import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Visible;
@@ -434,9 +439,50 @@ public class NumberProgressBar extends View {
     }
 
     public void setProgress(int progress) {
+        setProgress(progress,false,null,0);
+    }
+
+    /**
+     * Sets the NumberProgressBar to the required value, with optional animation
+     * @param progress the progress to be set
+     * @param animate whether change should be incremental (not sudden)
+     * @param activity the calling activity, may be left null in case of no animation
+     */
+    public void setProgress(final int progress, boolean animate, final Activity activity){
+        setProgress(progress,animate,activity,100);
+    }
+
+    /**
+     * Sets the NumberProgressBar to the required value, with optional animation, with the increments at defined periods
+     * @param progress the progress to be set
+     * @param animate whether change should be incremental (not sudden)
+     * @param activity the calling activity, may be left null in case of no animation
+     * @param period amount of time in milliseconds between subsequent increments.
+     */
+    public void setProgress(final int progress, boolean animate, final Activity activity, int period){
         if (progress <= getMax() && progress >= 0) {
-            this.mCurrentProgress = progress;
-            invalidate();
+            if(!animate || progress<mCurrentProgress){
+                this.mCurrentProgress = progress;
+                invalidate();
+            }else{
+                final Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(progress>mCurrentProgress)
+                                    incrementProgressBy(1);
+                                else {
+                                    timer.cancel();
+                                    timer.purge();
+                                }
+                            }
+                        });
+                    }
+                }, 0, period);
+            }
         }
     }
 

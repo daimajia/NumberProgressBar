@@ -22,21 +22,9 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bnp = (NumberProgressBar)findViewById(R.id.numberbar1);
         bnp.setOnProgressBarListener(this);
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        bnp.incrementProgressBy(1);
-                    }
-                });
-            }
-        }, 1000, 100);
+        bnp.setProgress(100,true,this);
     }
 
     @Override
