@@ -49,7 +49,11 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timer.cancel();
+        try {
+            timer.cancel();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
