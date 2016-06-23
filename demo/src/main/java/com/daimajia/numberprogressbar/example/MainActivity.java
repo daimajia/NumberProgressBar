@@ -1,7 +1,7 @@
 package com.daimajia.numberprogressbar.example;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -9,12 +9,8 @@ import android.widget.Toast;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.daimajia.numberprogressbar.OnProgressBarListener;
 
-import java.util.Timer;
-import java.util.TimerTask;
 
-
-public class MainActivity extends ActionBarActivity implements OnProgressBarListener {
-    private Timer timer;
+public class MainActivity extends AppCompatActivity implements OnProgressBarListener {
 
     private NumberProgressBar bnp;
 
@@ -22,21 +18,9 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         bnp = (NumberProgressBar)findViewById(R.id.numberbar1);
         bnp.setOnProgressBarListener(this);
-        timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        bnp.incrementProgressBy(1);
-                    }
-                });
-            }
-        }, 1000, 100);
+        bnp.setProgress(100,true,this);
     }
 
     @Override
@@ -61,7 +45,6 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timer.cancel();
     }
 
     @Override
