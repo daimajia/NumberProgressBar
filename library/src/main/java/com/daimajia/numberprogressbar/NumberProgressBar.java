@@ -47,6 +47,11 @@ public class NumberProgressBar extends View {
     private float mTextSize;
 
     /**
+     * Radius of progress bar
+     */
+    private float mRadius = 0f;
+
+    /**
      * The height of the reached area.
      */
     private float mReachedBarHeight;
@@ -72,6 +77,7 @@ public class NumberProgressBar extends View {
     private final int default_unreached_color = Color.rgb(204, 204, 204);
     private final float default_progress_text_offset;
     private final float default_text_size;
+    private final float default_radius;
     private final float default_reached_bar_height;
     private final float default_unreached_bar_height;
 
@@ -85,6 +91,7 @@ public class NumberProgressBar extends View {
     private static final String INSTANCE_REACHED_BAR_COLOR = "reached_bar_color";
     private static final String INSTANCE_UNREACHED_BAR_HEIGHT = "unreached_bar_height";
     private static final String INSTANCE_UNREACHED_BAR_COLOR = "unreached_bar_color";
+    private static final String INSTANCE_RADIUS = "radius";
     private static final String INSTANCE_MAX = "max";
     private static final String INSTANCE_PROGRESS = "progress";
     private static final String INSTANCE_SUFFIX = "suffix";
@@ -170,6 +177,7 @@ public class NumberProgressBar extends View {
     public NumberProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
+        default_radius = 0f;
         default_reached_bar_height = dp2px(1.5f);
         default_unreached_bar_height = dp2px(1.0f);
         default_text_size = sp2px(10);
@@ -181,9 +189,11 @@ public class NumberProgressBar extends View {
 
         mReachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_reached_color, default_reached_color);
         mUnreachedBarColor = attributes.getColor(R.styleable.NumberProgressBar_progress_unreached_color, default_unreached_color);
+        mRadius = attributes.getColor(R.styleable.NumberProgressBar_progress_unreached_color, default_unreached_color);
         mTextColor = attributes.getColor(R.styleable.NumberProgressBar_progress_text_color, default_text_color);
         mTextSize = attributes.getDimension(R.styleable.NumberProgressBar_progress_text_size, default_text_size);
 
+        mRadius = attributes.getDimension(R.styleable.NumberProgressBar_progress_radius, default_radius);
         mReachedBarHeight = attributes.getDimension(R.styleable.NumberProgressBar_progress_reached_bar_height, default_reached_bar_height);
         mUnreachedBarHeight = attributes.getDimension(R.styleable.NumberProgressBar_progress_unreached_bar_height, default_unreached_bar_height);
         mOffset = attributes.getDimension(R.styleable.NumberProgressBar_progress_text_offset, default_progress_text_offset);
@@ -245,11 +255,11 @@ public class NumberProgressBar extends View {
         }
 
         if (mDrawReachedBar) {
-            canvas.drawRect(mReachedRectF, mReachedBarPaint);
+            canvas.drawRoundRect(mReachedRectF, mRadius, mRadius, mReachedBarPaint);
         }
 
         if (mDrawUnreachedBar) {
-            canvas.drawRect(mUnreachedRectF, mUnreachedBarPaint);
+            canvas.drawRoundRect(mUnreachedRectF, mRadius, mRadius, mUnreachedBarPaint);
         }
 
         if (mIfDrawText)
@@ -346,6 +356,10 @@ public class NumberProgressBar extends View {
 
     public int getProgress() {
         return mCurrentProgress;
+    }
+
+    public float getRadius() {
+        return mRadius;
     }
 
     public int getMax() {
@@ -450,6 +464,7 @@ public class NumberProgressBar extends View {
         bundle.putFloat(INSTANCE_UNREACHED_BAR_HEIGHT, getUnreachedBarHeight());
         bundle.putInt(INSTANCE_REACHED_BAR_COLOR, getReachedBarColor());
         bundle.putInt(INSTANCE_UNREACHED_BAR_COLOR, getUnreachedBarColor());
+        bundle.putFloat(INSTANCE_RADIUS, getRadius());
         bundle.putInt(INSTANCE_MAX, getMax());
         bundle.putInt(INSTANCE_PROGRESS, getProgress());
         bundle.putString(INSTANCE_SUFFIX, getSuffix());
@@ -468,6 +483,7 @@ public class NumberProgressBar extends View {
             mUnreachedBarHeight = bundle.getFloat(INSTANCE_UNREACHED_BAR_HEIGHT);
             mReachedBarColor = bundle.getInt(INSTANCE_REACHED_BAR_COLOR);
             mUnreachedBarColor = bundle.getInt(INSTANCE_UNREACHED_BAR_COLOR);
+            mRadius = bundle.getFloat(INSTANCE_RADIUS);
             initializePainters();
             setMax(bundle.getInt(INSTANCE_MAX));
             setProgress(bundle.getInt(INSTANCE_PROGRESS));
