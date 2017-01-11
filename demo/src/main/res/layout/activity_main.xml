@@ -17,6 +17,8 @@
         android:layout_width="wrap_content"
         android:padding="20dp"
         custom:progress_current="0"
+        custom:progress_reached_bar_height="16dp"
+        custom:progress_radius="10dp"
         style="@style/NumberProgressBar_Default"
         android:layout_height="wrap_content" />
 
