@@ -164,7 +164,7 @@ public class NumberProgressBar extends View {
     }
 
     public NumberProgressBar(Context context, AttributeSet attrs) {
-        this(context, attrs, R.attr.numberProgressBarStyle);
+        this(context, attrs, 0);
     }
 
     public NumberProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
