@@ -31,7 +31,7 @@ BTW. My friends also made some other platform's NumberProgressBar：
 
 ```groovy
 dependencies {
-   compile 'com.daimajia.numberprogressbar:library:1.3@aar'
+   compile 'com.daimajia.numberprogressbar:library:1.4@aar'
 }
 ```
 
@@ -41,7 +41,7 @@ dependencies {
 <dependency>
     <groupId>com.daimajia.numberprogressbar</groupId>
     <artifactId>library</artifactId>
-    <version>1.3</version>
+    <version>1.4</version>
     <type>apklib</type>
 </dependency>
 ```
