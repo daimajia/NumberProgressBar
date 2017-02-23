@@ -9,4 +9,5 @@ android:
   - extra
   - extra-android-m2repository
 script:
-  - ./gradlew assembleDebug
+  - ./gradlew clean assembleDebug
+  - ./gradlew clean assembleRelease

@@ -15,5 +15,5 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keep class com.daimajia.numberprogressbar.** { ; }
--keep interface com.daimajia.numberprogressbar.* { *; }
+-keep class com.daimajia.numberprogressbar.** { *; }
+-keep interface com.daimajia.numberprogressbar.** { *; }
