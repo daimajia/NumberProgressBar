@@ -1,4 +1,4 @@
-##Android NumberProgressBar [![Build Status](https://travis-ci.org/daimajia/NumberProgressBar.png?branch=master)](https://travis-ci.org/daimajia/NumberProgressBar)
+## Android NumberProgressBar [![Build Status](https://travis-ci.org/daimajia/NumberProgressBar.png?branch=master)](https://travis-ci.org/daimajia/NumberProgressBar)
 
 -----
 
@@ -16,7 +16,7 @@ BTW. My friends also made some other platform's NumberProgressBar：
 
 ---
 
-###Demo
+### Demo
 
 ![NumberProgressBar](http://ww3.sinaimg.cn/mw690/610dc034jw1efyrd8n7i7g20cz02mq5f.gif)
 
@@ -24,7 +24,7 @@ BTW. My friends also made some other platform's NumberProgressBar：
 [Download Demo](https://github.com/daimajia/NumberProgressBar/releases/download/v1.0/NumberProgressBar-Demo-v1.0.apk)
 
 
-###Usage
+### Usage
 ----
 
 #### Gradle
@@ -83,7 +83,7 @@ In the above picture, the style is :
 
 You can get more beautiful color from [kular](https://kuler.adobe.com), and you can also contribute your color style to NumberProgressBar!  
 
-###Build
+### Build
 
 run `./gradlew assembleDebug` (Mac/Linux)
 
@@ -91,7 +91,7 @@ or
 
 run `gradlew.bat assembleDebug` (Windows)
 
-###Attributes
+### Attributes
 
 There are several attributes you can set:
 
