@@ -164,7 +164,7 @@ public class NumberProgressBar extends View {
     }
 
     public NumberProgressBar(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        this(context, attrs, R.attr.numberProgressBarStyle);
     }
 
     public NumberProgressBar(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -193,8 +193,8 @@ public class NumberProgressBar extends View {
             mIfDrawText = false;
         }
 
-        setProgress(attributes.getInt(R.styleable.NumberProgressBar_progress_current, 0));
-        setMax(attributes.getInt(R.styleable.NumberProgressBar_progress_max, 100));
+        setProgress(attributes.getInt(R.styleable.NumberProgressBar_progress, 0));
+        setMax(attributes.getInt(R.styleable.NumberProgressBar_max, 100));
 
         attributes.recycle();
         initializePainters();
@@ -294,8 +294,7 @@ public class NumberProgressBar extends View {
             mDrawReachedBar = true;
             mReachedRectF.left = getPaddingLeft();
             mReachedRectF.top = getHeight() / 2.0f - mReachedBarHeight / 2.0f;
-             mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight() - mDrawTextWidth - mOffset)
-                    / (getMax() * 1.0f) * getProgress()  + getPaddingLeft();
+            mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress() - mOffset + getPaddingLeft();
             mReachedRectF.bottom = getHeight() / 2.0f + mReachedBarHeight / 2.0f;
             mDrawTextStart = (mReachedRectF.right + mOffset);
         }
@@ -375,7 +374,7 @@ public class NumberProgressBar extends View {
 
     public void setUnreachedBarColor(int barColor) {
         this.mUnreachedBarColor = barColor;
-        mUnreachedBarPaint.setColor(mUnreachedBarColor);
+        mUnreachedBarPaint.setColor(mReachedBarColor);
         invalidate();
     }
 
