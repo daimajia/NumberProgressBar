@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 
 import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Invisible;
 import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisibility.Visible;
@@ -19,6 +20,7 @@ import static com.daimajia.numberprogressbar.NumberProgressBar.ProgressTextVisib
  */
 public class NumberProgressBar extends View {
 
+    private static final long ANIMATION_DURATION = 300;
     private int mMaxProgress = 100;
 
     /**
@@ -150,10 +152,15 @@ public class NumberProgressBar extends View {
 
     private boolean mIfDrawText = true;
 
+    private DecelerateInterpolator mInterpolator;
+
+
     /**
      * Listener
      */
     private OnProgressBarListener mListener;
+    private int mAnimationFrom;
+    private long mAnimationStartTime;
 
     public enum ProgressTextVisibility {
         Visible, Invisible
@@ -192,6 +199,8 @@ public class NumberProgressBar extends View {
         if (textVisible != PROGRESS_TEXT_VISIBLE) {
             mIfDrawText = false;
         }
+
+        mInterpolator = new DecelerateInterpolator();
 
         setProgress(attributes.getInt(R.styleable.NumberProgressBar_progress_current, 0));
         setMax(attributes.getInt(R.styleable.NumberProgressBar_progress_max, 100));
@@ -254,6 +263,12 @@ public class NumberProgressBar extends View {
 
         if (mIfDrawText)
             canvas.drawText(mCurrentDrawText, mDrawTextStart, mDrawTextEnd, mTextPaint);
+
+        if (needAnimation()) invalidate();
+    }
+
+    private boolean needAnimation() {
+        return System.currentTimeMillis() - mAnimationStartTime <= ANIMATION_DURATION;
     }
 
     private void initializePainters() {
@@ -272,7 +287,7 @@ public class NumberProgressBar extends View {
     private void calculateDrawRectFWithoutProgressText() {
         mReachedRectF.left = getPaddingLeft();
         mReachedRectF.top = getHeight() / 2.0f - mReachedBarHeight / 2.0f;
-        mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress() + getPaddingLeft();
+        mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getAnimateProgress() + getPaddingLeft();
         mReachedRectF.bottom = getHeight() / 2.0f + mReachedBarHeight / 2.0f;
 
         mUnreachedRectF.left = mReachedRectF.right;
@@ -294,7 +309,7 @@ public class NumberProgressBar extends View {
             mDrawReachedBar = true;
             mReachedRectF.left = getPaddingLeft();
             mReachedRectF.top = getHeight() / 2.0f - mReachedBarHeight / 2.0f;
-            mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress() - mOffset + getPaddingLeft();
+            mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getAnimateProgress() - mOffset + getPaddingLeft();
             mReachedRectF.bottom = getHeight() / 2.0f + mReachedBarHeight / 2.0f;
             mDrawTextStart = (mReachedRectF.right + mOffset);
         }
@@ -346,6 +361,12 @@ public class NumberProgressBar extends View {
 
     public int getProgress() {
         return mCurrentProgress;
+    }
+
+    private float getAnimateProgress() {
+        final long time = System.currentTimeMillis() - mAnimationStartTime;
+        if (time >= ANIMATION_DURATION) return getProgress();
+        return mAnimationFrom + mInterpolator.getInterpolation((float) time / ANIMATION_DURATION) * (getProgress() - mAnimationFrom);
     }
 
     public int getMax() {
@@ -428,17 +449,24 @@ public class NumberProgressBar extends View {
             setProgress(getProgress() + by);
         }
 
-        if(mListener != null){
+        if (mListener != null) {
             mListener.onProgressChange(getProgress(), getMax());
         }
     }
 
     public void setProgress(int progress) {
         if (progress <= getMax() && progress >= 0) {
+            startAnimation(this.mCurrentProgress, progress);
             this.mCurrentProgress = progress;
             invalidate();
         }
     }
+
+    private void startAnimation(int from, int to) {
+        this.mAnimationFrom = from;
+        this.mAnimationStartTime = System.currentTimeMillis();
+    }
+
 
     @Override
     protected Parcelable onSaveInstanceState() {
@@ -499,7 +527,7 @@ public class NumberProgressBar extends View {
         return mIfDrawText;
     }
 
-    public void setOnProgressBarListener(OnProgressBarListener listener){
+    public void setOnProgressBarListener(OnProgressBarListener listener) {
         mListener = listener;
     }
 }

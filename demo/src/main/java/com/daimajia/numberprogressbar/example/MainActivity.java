@@ -32,11 +32,11 @@ public class MainActivity extends ActionBarActivity implements OnProgressBarList
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        bnp.incrementProgressBy(1);
+                        bnp.incrementProgressBy(5);
                     }
                 });
             }
-        }, 1000, 100);
+        }, 1000, 1000);
     }
 
     @Override
