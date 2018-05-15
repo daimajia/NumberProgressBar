@@ -23,8 +23,13 @@ public class MainActivity extends AppCompatActivity implements OnProgressBarList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bnp = (NumberProgressBar) findViewById(R.id.numberbar1);
+        bnp = findViewById(R.id.numberbar1);
         bnp.setOnProgressBarListener(this);
+
+        //if you using lower than API level 21, Probably need assets
+        bnp.setTypeFace(getResources().getFont(R.font.nanum_square_round_otfeb));
+
+
         timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
@@ -37,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements OnProgressBarList
                 });
             }
         }, 1000, 100);
+
     }
 
     @Override
