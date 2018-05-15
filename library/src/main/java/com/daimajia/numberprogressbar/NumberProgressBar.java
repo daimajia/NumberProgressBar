@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -325,6 +326,10 @@ public class NumberProgressBar extends View {
      */
     public int getTextColor() {
         return mTextColor;
+    }
+
+    public void setTypeFace(Typeface typeFace){
+        mTextPaint.setTypeface(typeFace);
     }
 
     /**
