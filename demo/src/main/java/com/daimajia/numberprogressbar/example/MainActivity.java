@@ -1,5 +1,6 @@
 package com.daimajia.numberprogressbar.example;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -23,12 +24,10 @@ public class MainActivity extends AppCompatActivity implements OnProgressBarList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        bnp = findViewById(R.id.numberbar1);
+        bnp = (NumberProgressBar) findViewById(R.id.numberbar1);
         bnp.setOnProgressBarListener(this);
 
-        //if you using lower than API level 21, Probably need assets
-        bnp.setTypeFace(getResources().getFont(R.font.nanum_square_round_otfeb));
-
+        bnp.setTypeFace(Typeface.createFromAsset(getAssets(), "nanum_square_round_otfeb.otf"));
 
         timer = new Timer();
         timer.schedule(new TimerTask() {
