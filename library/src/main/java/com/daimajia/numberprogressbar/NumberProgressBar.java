@@ -66,6 +66,11 @@ public class NumberProgressBar extends View {
      */
     private String mPrefix = "";
 
+    /**
+     * The max drawTextWith
+     */
+    private float mMaxDrawTextWidth;
+
 
     private final int default_text_color = Color.rgb(66, 145, 241);
     private final int default_reached_color = Color.rgb(66, 145, 241);
@@ -266,6 +271,8 @@ public class NumberProgressBar extends View {
         mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mTextPaint.setColor(mTextColor);
         mTextPaint.setTextSize(mTextSize);
+
+        mMaxDrawTextWidth = mTextPaint.measureText(mPrefix + "100" + mSuffix);
     }
 
 
@@ -294,7 +301,8 @@ public class NumberProgressBar extends View {
             mDrawReachedBar = true;
             mReachedRectF.left = getPaddingLeft();
             mReachedRectF.top = getHeight() / 2.0f - mReachedBarHeight / 2.0f;
-            mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight()) / (getMax() * 1.0f) * getProgress() - mOffset + getPaddingLeft();
+            mReachedRectF.right = (getWidth() - getPaddingLeft() - getPaddingRight() - mDrawTextWidth)
+                    / (getMax() * 1.0f) * getProgress() - mOffset + getPaddingLeft();
             mReachedRectF.bottom = getHeight() / 2.0f + mReachedBarHeight / 2.0f;
             mDrawTextStart = (mReachedRectF.right + mOffset);
         }
@@ -307,13 +315,13 @@ public class NumberProgressBar extends View {
         }
 
         float unreachedBarStart = mDrawTextStart + mDrawTextWidth + mOffset;
-        if (unreachedBarStart >= getWidth() - getPaddingRight()) {
+        if (unreachedBarStart >= getWidth() - getPaddingRight() - mMaxDrawTextWidth) {
             mDrawUnreachedBar = false;
         } else {
             mDrawUnreachedBar = true;
             mUnreachedRectF.left = unreachedBarStart;
-            mUnreachedRectF.right = getWidth() - getPaddingRight();
-            mUnreachedRectF.top = getHeight() / 2.0f + -mUnreachedBarHeight / 2.0f;
+            mUnreachedRectF.right = getWidth() - getPaddingRight() - mMaxDrawTextWidth;
+            mUnreachedRectF.top = getHeight() / 2.0f - mUnreachedBarHeight / 2.0f;
             mUnreachedRectF.bottom = getHeight() / 2.0f + mUnreachedBarHeight / 2.0f;
         }
     }
